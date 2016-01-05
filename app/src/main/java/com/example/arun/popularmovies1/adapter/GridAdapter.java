@@ -1,18 +1,15 @@
-package com.example.arun.popularmovies1;
+package com.example.arun.popularmovies1.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.arun.popularmovies1.models.Movie;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -20,10 +17,10 @@ import java.util.ListIterator;
  */
 public class GridAdapter extends BaseAdapter {
 
+    private final String imageBaseURL="http://image.tmdb.org/t/p/w185";
     private Context mContext=null;
     private ArrayList<String> moviePosterList=new ArrayList<String>();
     private ArrayList<Movie> movieList=new ArrayList<Movie>();
-    private final String imageBaseURL="http://image.tmdb.org/t/p/w185";
 
     public GridAdapter(Context context){
         mContext=context;

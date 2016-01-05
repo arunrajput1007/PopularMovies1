@@ -10,18 +10,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.example.arun.popularmovies1.GridAdapter;
 import com.example.arun.popularmovies1.R;
+import com.example.arun.popularmovies1.adapter.GridAdapter;
 import com.example.arun.popularmovies1.models.Movie;
 import com.example.arun.popularmovies1.netWork.NetworkManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String POPULAR_MOVIES="popular";
+    private final String TOP_RATED_MOVIES="top_rated";
     private NetworkManager networkManager = null;
     private GridView gridView = null;
     private GridAdapter gridAdapter = null;
-    private final String POPULAR_MOVIES="popular";
-    private final String TOP_RATED_MOVIES="top_rated";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

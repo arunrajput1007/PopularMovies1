@@ -3,13 +3,12 @@ package com.example.arun.popularmovies1.netWork;
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import com.example.arun.popularmovies1.GridAdapter;
+import com.example.arun.popularmovies1.adapter.GridAdapter;
 import com.example.arun.popularmovies1.models.Movie;
 import com.example.arun.popularmovies1.models.MovieSet;
 import com.example.arun.popularmovies1.service.IMovieService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -21,11 +20,11 @@ import retrofit.Retrofit;
  * Created by arun on 20/12/15.
  */
 public class NetworkManager implements Callback<MovieSet> {
+    private final String BASE_URL = "http://api.themoviedb.org/";
+    private final String API_KEY= "e1dd365270be0424757f052aba318e98";
     private Retrofit retrofit=null;
     private IMovieService service=null;
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
-    private final String BASE_URL = "http://api.themoviedb.org/";
-    private final String API_KEY= "e1dd365270be0424757f052aba318e98";
     private Context mContext=null;
     private GridAdapter gridAdapter=null;
     private ProgressDialog mProgressDialog=null;
