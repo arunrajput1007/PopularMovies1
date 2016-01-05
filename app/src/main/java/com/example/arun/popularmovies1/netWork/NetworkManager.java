@@ -21,7 +21,7 @@ import retrofit.Retrofit;
  */
 public class NetworkManager implements Callback<MovieSet> {
     private final String BASE_URL = "http://api.themoviedb.org/";
-    private final String API_KEY= "e1dd365270be0424757f052aba318e98";
+    private final String API_KEY= "api_key";
     private Retrofit retrofit=null;
     private IMovieService service=null;
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
