@@ -15,12 +15,15 @@ import com.example.arun.popularmovies1.adapter.GridAdapter;
 import com.example.arun.popularmovies1.models.Movie;
 import com.example.arun.popularmovies1.netWork.NetworkManager;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
     private final String POPULAR_MOVIES="popular";
     private final String TOP_RATED_MOVIES="top_rated";
+    @Bind(R.id.grid_view) GridView gridView;
     private NetworkManager networkManager = null;
-    private GridView gridView = null;
     private GridAdapter gridAdapter = null;
 
     @Override
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        gridView = (GridView) findViewById(R.id.grid_view);
+        ButterKnife.bind(this);
         gridAdapter = new GridAdapter(this);
         gridView.setAdapter(gridAdapter);
         networkManager = new NetworkManager(this, gridAdapter);
@@ -73,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
                 networkManager.getMovies(TOP_RATED_MOVIES);}
         }
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
     }
 }
 
